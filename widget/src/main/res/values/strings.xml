@@ -4,4 +4,13 @@
     <string name="widget_title">Workout Timer</string>
     <string name="widget_time_default">00:00</string>
     <string name="widget_start_button">Start</string>
+    <string name="widget_no_training">No current training set</string>
+    <string name="widget_timer_running">RUNNING</string>
+    <string name="widget_btn_start">START</string>
+    <string name="widget_btn_pause">PAUSE</string>
+    <string name="widget_btn_reset">RESET</string>
+    <string name="widget_btn_prev">&lt;</string>
+    <string name="widget_btn_next">&gt;</string>
+    <string name="notification_title_card_completed">Card Completed!</string>
+    <string name="notification_text_completed_card">Completed card: %1$s</string>
 </resources>

@@ -21,12 +21,19 @@
             </intent-filter>
         </activity>
 
-        <!-- Widget receiver -->
+        <!-- RemoteViews Widget Provider -->
         <receiver
-            android:name="com.myworkoutroutine.widget.WorkoutWidgetReceiver"
+            android:name="com.myworkoutroutine.widget.WorkoutAppWidgetProvider"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.myworkoutroutine.widget.ACTION_SELECT_TIMER" />
+                <action android:name="com.myworkoutroutine.widget.ACTION_START_TIMER" />
+                <action android:name="com.myworkoutroutine.widget.ACTION_PAUSE_TIMER" />
+                <action android:name="com.myworkoutroutine.widget.ACTION_RESET_TIMER" />
+                <action android:name="com.myworkoutroutine.widget.ACTION_PREVIOUS_CARD" />
+                <action android:name="com.myworkoutroutine.widget.ACTION_NEXT_CARD" />
+                <action android:name="com.myworkoutroutine.widget.ACTION_UPDATE_WIDGET" />
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
