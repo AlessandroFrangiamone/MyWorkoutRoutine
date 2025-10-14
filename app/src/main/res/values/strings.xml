@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Workout Routine</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_workouts">Cards</string>
+    <string name="nav_trainings">Trainings</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="work_in_progress">Work in Progress</string>
+    <string name="work_in_progress_description">This section is under development</string>
+</resources>

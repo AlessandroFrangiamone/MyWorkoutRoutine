@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Trainings screen -->
+    <string name="trainings_title">Trainings</string>
+    <string name="add_training">Add Training</string>
+    <string name="no_trainings">No trainings created</string>
+    <string name="no_trainings_description">Create your first training plan</string>
+
+    <!-- Add/Edit Training -->
+    <string name="add_edit_training_title">Training Plan</string>
+    <string name="training_name_label">Training Name</string>
+    <string name="training_name_hint">e.g., Weekly Plan</string>
+    <string name="select_workout_cards">Select Workout Cards</string>
+    <string name="set_as_current">Set as Current</string>
+    <string name="is_current_training">Current Training</string>
+
+    <!-- Dialogs -->
+    <string name="confirm_delete_training">Delete this training?</string>
+    <string name="confirm_set_current">Set as current training?</string>
+    <string name="confirm_set_current_description">Only one training can be current at a time</string>
+    <string name="confirm">Confirm</string>
+
+    <!-- Errors -->
+    <string name="error_training_name_empty">Please enter a name</string>
+    <string name="error_no_cards_selected">Select at least one card</string>
+    <string name="error_too_many_cards">Maximum 4 cards allowed per training</string>
+    <string name="error_saving_training">Error saving training</string>
+
+    <!-- Star icon -->
+    <string name="set_current_training">Set current training</string>
+</resources>

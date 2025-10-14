@@ -1,0 +1,153 @@
+
+Welcome to Gradle 8.0!
+
+For more details see https://docs.gradle.org/8.0/release-notes.html
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. See https://docs.gradle.org/8.0/userguide/gradle_daemon.html#sec:disabling_the_daemon.
+Daemon will be stopped at the end of the build 
+
+> Configure project :app
+WARNING: The option setting 'android.enableDexingArtifactTransform=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 8.2 of the Android Gradle plugin.
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+WARNING: We recommend using a newer Android Gradle plugin to use compileSdk = 34
+
+This Android Gradle plugin (8.0.2) was tested up to compileSdk = 33.
+
+You are strongly encouraged to update your project to use a newer
+Android Gradle plugin that has been tested with compileSdk = 34.
+
+If you are already using the latest version of the Android Gradle plugin,
+you may need to wait until a newer version with support for compileSdk = 34 is available.
+
+To suppress this warning, add/update
+    android.suppressUnsupportedCompileSdk=34
+to this project's gradle.properties.
+
+> Task :app:clean
+> Task :widget:clean
+> Task :core:data:clean
+> Task :core:domain:clean
+> Task :core:ui:clean
+> Task :feature:settings:clean
+> Task :feature:workouts:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :widget:preBuild UP-TO-DATE
+> Task :widget:preDebugBuild UP-TO-DATE
+> Task :core:data:preBuild UP-TO-DATE
+> Task :core:data:preDebugBuild UP-TO-DATE
+> Task :core:domain:preBuild UP-TO-DATE
+> Task :core:domain:preDebugBuild UP-TO-DATE
+> Task :core:ui:preBuild UP-TO-DATE
+> Task :core:ui:preDebugBuild UP-TO-DATE
+> Task :core:domain:writeDebugAarMetadata
+> Task :core:data:writeDebugAarMetadata
+> Task :widget:writeDebugAarMetadata
+> Task :feature:settings:preBuild UP-TO-DATE
+> Task :feature:settings:preDebugBuild UP-TO-DATE
+> Task :core:ui:writeDebugAarMetadata
+> Task :feature:workouts:preBuild UP-TO-DATE
+> Task :feature:workouts:preDebugBuild UP-TO-DATE
+> Task :feature:settings:writeDebugAarMetadata
+> Task :feature:workouts:writeDebugAarMetadata
+> Task :app:generateDebugResValues
+> Task :app:checkDebugAarMetadata
+> Task :widget:generateDebugResValues
+> Task :widget:generateDebugResources
+> Task :widget:packageDebugResources
+> Task :core:data:generateDebugResValues
+> Task :core:data:generateDebugResources
+> Task :core:data:packageDebugResources
+> Task :core:domain:generateDebugResValues
+> Task :core:domain:generateDebugResources
+> Task :core:domain:packageDebugResources
+> Task :core:ui:generateDebugResValues
+> Task :core:ui:generateDebugResources
+> Task :core:ui:packageDebugResources
+> Task :feature:settings:generateDebugResValues
+> Task :feature:settings:generateDebugResources
+> Task :feature:settings:packageDebugResources
+> Task :feature:workouts:generateDebugResValues
+> Task :feature:workouts:generateDebugResources
+> Task :feature:workouts:packageDebugResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:mergeDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :widget:extractDeepLinksDebug
+> Task :core:data:extractDeepLinksDebug
+> Task :core:domain:extractDeepLinksDebug
+> Task :core:ui:extractDeepLinksDebug
+> Task :feature:settings:extractDeepLinksDebug
+> Task :feature:workouts:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :core:domain:processDebugManifest
+> Task :feature:workouts:processDebugManifest
+> Task :core:data:processDebugManifest
+> Task :widget:processDebugManifest
+> Task :core:ui:processDebugManifest
+> Task :feature:settings:processDebugManifest
+> Task :widget:compileDebugLibraryResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :core:data:compileDebugLibraryResources
+> Task :widget:parseDebugLocalResources
+> Task :core:domain:compileDebugLibraryResources
+> Task :core:data:parseDebugLocalResources
+> Task :core:domain:parseDebugLocalResources
+> Task :core:ui:compileDebugLibraryResources
+> Task :core:ui:parseDebugLocalResources
+> Task :feature:settings:compileDebugLibraryResources
+> Task :widget:generateDebugRFile
+> Task :core:domain:generateDebugRFile
+> Task :core:data:generateDebugRFile
+> Task :feature:settings:parseDebugLocalResources
+> Task :feature:workouts:compileDebugLibraryResources
+> Task :core:ui:generateDebugRFile
+> Task :feature:settings:generateDebugRFile
+> Task :feature:workouts:parseDebugLocalResources
+> Task :feature:workouts:generateDebugRFile
+> Task :core:domain:javaPreCompileDebug
+> Task :core:ui:javaPreCompileDebug
+> Task :core:domain:compileDebugKotlin
+> Task :core:domain:compileDebugJavaWithJavac NO-SOURCE
+> Task :widget:javaPreCompileDebug
+> Task :core:domain:bundleLibRuntimeToJarDebug
+> Task :core:domain:bundleLibCompileToJarDebug
+> Task :core:data:javaPreCompileDebug
+> Task :core:ui:compileDebugKotlin
+> Task :core:ui:compileDebugJavaWithJavac NO-SOURCE
+> Task :core:ui:bundleLibCompileToJarDebug
+> Task :core:ui:bundleLibRuntimeToJarDebug
+> Task :feature:settings:javaPreCompileDebug
+> Task :core:data:kspDebugKotlin
+> Task :app:processDebugManifestForPackage
+> Task :widget:kspDebugKotlin
+> Task :core:data:compileDebugKotlin
+> Task :feature:settings:kspDebugKotlin
+> Task :widget:compileDebugKotlin
+> Task :core:data:compileDebugJavaWithJavac FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':core:data:compileDebugJavaWithJavac'.
+> Could not resolve all files for configuration ':core:data:androidJdkImage'.
+   > Failed to transform core-for-system-modules.jar to match attributes {artifactType=_internal_android_jdk_image, org.gradle.libraryelements=jar, org.gradle.usage=java-runtime}.
+      > Execution failed for JdkImageTransform: /Users/alessandrofrangiamone/Library/Android/sdk/platforms/android-34/core-for-system-modules.jar.
+         > Error while executing process /Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/jlink with arguments {--module-path /Users/alessandrofrangiamone/.gradle/caches/transforms-3/8eeba452e924d9c295a24564c8afce24/transformed/output/temp/jmod --add-modules java.base --output /Users/alessandrofrangiamone/.gradle/caches/transforms-3/8eeba452e924d9c295a24564c8afce24/transformed/output/jdkImage --disable-plugin system-modules}
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 3m 19s
+83 actionable tasks: 83 executed

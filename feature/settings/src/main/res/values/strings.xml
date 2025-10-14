@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Screen titles -->
+    <string name="settings_title">Settings</string>
+
+    <!-- About section -->
+    <string name="about_title">About</string>
+    <string name="app_version">My Workout Routine v1.0</string>
+    <string name="app_description">Track your workouts and build training plans</string>
+
+    <!-- Theme section -->
+    <string name="theme_title">Theme</string>
+    <string name="theme_description">Dark mode with carbon fiber and red accents</string>
+</resources>

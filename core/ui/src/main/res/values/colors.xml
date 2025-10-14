@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary dark theme colors -->
+    <color name="carbon_fiber">#1A1A1D</color>
+    <color name="carbon_fiber_light">#2D2D30</color>
+    <color name="carbon_fiber_dark">#0D0D0F</color>
+
+    <!-- Accent colors -->
+    <color name="fitness_red">#E63946</color>
+    <color name="fitness_red_light">#FF5763</color>
+    <color name="fitness_red_dark">#B02A35</color>
+
+    <!-- Supporting colors -->
+    <color name="dark_gray">#3E3E42</color>
+    <color name="medium_gray">#5E5E62</color>
+    <color name="light_gray">#8E8E92</color>
+    <color name="off_white">#F5F5F7</color>
+</resources>

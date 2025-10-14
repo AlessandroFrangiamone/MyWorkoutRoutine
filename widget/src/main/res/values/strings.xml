@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_description">Workout timer widget</string>
+    <string name="widget_title">Workout Timer</string>
+    <string name="widget_time_default">00:00</string>
+    <string name="widget_start_button">Start</string>
+</resources>

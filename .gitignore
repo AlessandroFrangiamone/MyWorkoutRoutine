@@ -1,0 +1,63 @@
+# 1. BUILD ARTIFACTS (Generated and Compiled Files)
+# Ignore build output folders for all modules
+*/build/
+.gradle/
+*.apk
+*.aar
+*.ap_
+*.dex
+*.class
+/captures/
+/logcat/
+/reports/
+
+# 2. LOCAL AND USER-SPECIFIC CONFIGURATION
+# Contains the Android SDK path, which is machine-specific (ESSENTIAL)
+local.properties
+# Keystore files should never be committed for security reasons
+*.keystore
+*.jks
+# Local database files (if not using Room's default storage)
+*.db
+*.sqlite
+
+# 3. IDE CONFIGURATION (Android Studio / IntelliJ IDEA)
+# Workspace settings, file history, and user-specific configurations.
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/taskHistory.xml
+.idea/task.xml
+.idea/taskHistory.xml
+.idea/assetWizardSettings.xml
+.idea/dictionaries
+# .idea/modules.xml: Often ignored in multi-module for clarity, but some teams commit it.
+# We ignore it to prevent developer-specific changes from being committed.
+
+# IDE-specific module configuration files
+*.iml
+*.iws
+
+# Android Studio specific caches
+.idea/caches/
+.idea/libraries/
+.idea/codeStyles/
+.idea/gradle.xml # Ignore unless you have complex, shared Gradle configurations
+
+# 4. KOTLIN / COROUTINES FILES
+# Kotlin caching files
+*.ktdump
+
+# 5. EXTERNAL SERVICES / FIREBASE CONFIGURATION
+# Best practice is to ignore sensitive config files like google-services.json
+# and manage them via a secure pipeline or manually.
+# google-services.json
+
+# 6. OPERATING SYSTEM FILES
+# Mac OS
+.DS_Store
+# Windows
+Thumbs.db
+
+# 7. MULTI-MODULE CLEANUP
+# Ensures that any build/ folder within any sub-directory/module is ignored
+**/build/

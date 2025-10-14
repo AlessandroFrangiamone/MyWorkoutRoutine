@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Main app theme - uses Material3 with no action bar -->
+    <style name="Theme.MyWorkoutRoutine" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">@color/carbon_fiber</item>
+    </style>
+
+    <!-- Splash screen theme -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#1A1A1D</item>
+        <item name="postSplashScreenTheme">@style/Theme.MyWorkoutRoutine</item>
+    </style>
+</resources>

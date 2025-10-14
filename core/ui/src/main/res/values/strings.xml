@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common UI strings -->
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="back">Back</string>
+
+    <!-- Workout card -->
+    <string name="timer">Timer</string>
+
+    <!-- Content descriptions -->
+    <string name="content_description_duration">Duration</string>
+</resources>

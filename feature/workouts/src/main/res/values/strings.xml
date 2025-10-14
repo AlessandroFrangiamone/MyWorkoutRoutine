@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Screen titles -->
+    <string name="workouts_title">Workout Cards</string>
+    <string name="add_edit_workout_title">Workout Card</string>
+    <string name="add_new_card">Add New Card</string>
+
+    <!-- Empty state -->
+    <string name="no_workouts_message">No workout cards yet.\nTap the button to create one!</string>
+
+    <!-- Form fields -->
+    <string name="workout_name_label">Card Name</string>
+    <string name="workout_name_hint">e.g., Full Body Workout</string>
+    <string name="workout_description_label">Details</string>
+    <string name="workout_description_hint">Describe exercises, sets, reps...</string>
+    <string name="workout_timers_label">Timers (seconds)</string>
+    <string name="timer_30">30s</string>
+    <string name="timer_60">60s</string>
+    <string name="timer_90">90s</string>
+    <string name="timer_120">120s</string>
+
+    <!-- Buttons -->
+    <string name="save_workout">Save</string>
+    <string name="add_workout">Add Card</string>
+
+    <!-- Dialogs -->
+    <string name="confirm_delete_workout">Delete this workout card?</string>
+
+    <!-- Error messages -->
+    <string name="error_name_empty">Please enter a name</string>
+    <string name="error_description_empty">Please enter details</string>
+    <string name="error_saving_workout">Error saving workout</string>
+    <string name="error_card_in_use">Cannot delete card</string>
+    <string name="error_card_in_use_description">This card is used in one or more training plans. Remove it from the plans first.</string>
+</resources>

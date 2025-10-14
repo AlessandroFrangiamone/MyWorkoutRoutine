@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Widget Theme Colors -->
+    <color name="widget_carbon_fiber">#1A1A1D</color>
+    <color name="widget_carbon_fiber_light">#2D2D30</color>
+    <color name="widget_carbon_fiber_dark">#1F1F22</color>
+    <color name="widget_fitness_red">#E63946</color>
+    <color name="widget_off_white">#F5F5F7</color>
+    <color name="widget_orange">#FFA500</color>
+    <color name="widget_gray">#666666</color>
+</resources>
