@@ -3,6 +3,7 @@ package com.myworkoutroutine
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.FitnessCenter
@@ -21,6 +22,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.myworkoutroutine.core.ui.permission.PermissionHandler
 import com.myworkoutroutine.core.ui.theme.MyWorkoutRoutineTheme
 import com.myworkoutroutine.feature.settings.SettingsScreen
 import com.myworkoutroutine.feature.trainings.AddEditTrainingScreen
@@ -31,9 +33,22 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    private lateinit var permissionHandler: PermissionHandler
+
+    private val notificationPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { /* Permission result handled by system */ }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
+
+        // Initialize permission handler
+        permissionHandler = PermissionHandler.create(this)
+
+        // Request notification permission for Android 13+
+        permissionHandler.requestNotificationPermissionIfNeeded(notificationPermissionLauncher)
 
         setContent {
             MyWorkoutRoutineTheme {

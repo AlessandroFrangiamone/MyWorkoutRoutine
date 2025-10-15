@@ -18,24 +18,20 @@ class TimerWorker(
 ) : CoroutineWorker(context, params) {
 
     override suspend fun doWork(): Result {
-        android.util.Log.d("TimerWorker", "doWork() started")
         val prefs = context.getSharedPreferences(WIDGET_PREFS, Context.MODE_PRIVATE)
         var secondsCounter = 0
 
         while (true) {
             val isRunning = prefs.getBoolean(KEY_IS_RUNNING, false)
-            android.util.Log.d("TimerWorker", "Loop iteration - isRunning: $isRunning")
 
             if (!isRunning) {
-                android.util.Log.d("TimerWorker", "Timer stopped, exiting worker")
                 return Result.success()
             }
 
             val remaining = prefs.getInt(KEY_REMAINING_SECONDS, 0)
-            android.util.Log.d("TimerWorker", "Remaining seconds: $remaining")
 
-            if (remaining <= 0) {
-                android.util.Log.d("TimerWorker", "Timer finished, sending notification")
+            // Check if timer just finished (remaining is 1, about to become 0)
+            if (remaining <= 1) {
                 // Timer finished - send notification with card name
                 val cardName = getCurrentCardName()
                 sendNotification(cardName)
@@ -52,16 +48,15 @@ class TimerWorker(
                 return Result.success()
             }
 
-            // Decrement timer
+            // Decrement timer (only if remaining > 1)
+            val newRemaining = remaining - 1
             prefs.edit()
-                .putInt(KEY_REMAINING_SECONDS, remaining - 1)
+                .putInt(KEY_REMAINING_SECONDS, newRemaining)
                 .apply()
 
             // Update widget only every 5 seconds (or when timer finishes/is low)
-            // Glance widgets don't support high-frequency updates
             secondsCounter++
             if (secondsCounter % 5 == 0 || remaining <= 5) {
-                android.util.Log.d("TimerWorker", "Updating widget at $remaining seconds")
                 forceWidgetUpdate()
             }
 
@@ -71,10 +66,9 @@ class TimerWorker(
 
     private fun forceWidgetUpdate() {
         try {
-            android.util.Log.d("TimerWorker", "Triggering RemoteViews widget update")
             WorkoutAppWidgetProvider.updateWidget(context)
         } catch (e: Exception) {
-            android.util.Log.e("TimerWorker", "Error forcing widget update", e)
+            // Silent fail
         }
     }
 
@@ -99,7 +93,6 @@ class TimerWorker(
                 "Workout"
             }
         } catch (e: Exception) {
-            android.util.Log.e("TimerWorker", "Error getting card name", e)
             "Workout"
         }
     }
@@ -107,23 +100,29 @@ class TimerWorker(
     private fun sendNotification(cardName: String) {
         val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(
-                NOTIFICATION_CHANNEL_ID,
-                "Workout Timer",
-                NotificationManager.IMPORTANCE_HIGH
-            ).apply {
-                description = "Workout timer notifications"
-            }
-            notificationManager.createNotificationChannel(channel)
+        // Create notification channel (required for Android O and above)
+        val channel = NotificationChannel(
+            NOTIFICATION_CHANNEL_ID,
+            "Workout Timer",
+            NotificationManager.IMPORTANCE_HIGH
+        ).apply {
+            description = "Workout timer completion notifications"
+            enableLights(true)
+            enableVibration(true)
+            setShowBadge(true)
         }
+        notificationManager.createNotificationChannel(channel)
 
+        // Build notification
         val notification = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
             .setSmallIcon(android.R.drawable.ic_dialog_info)
             .setContentTitle(context.getString(R.string.notification_title_card_completed))
             .setContentText(context.getString(R.string.notification_text_completed_card, cardName))
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setPriority(NotificationCompat.PRIORITY_MAX)
+            .setCategory(NotificationCompat.CATEGORY_ALARM)
             .setAutoCancel(true)
+            .setDefaults(NotificationCompat.DEFAULT_ALL)
+            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
             .build()
 
         notificationManager.notify(NOTIFICATION_ID, notification)
