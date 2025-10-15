@@ -7,7 +7,6 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.os.SystemClock
-import android.util.Log
 import android.view.View
 import android.widget.RemoteViews
 import com.myworkoutroutine.core.domain.model.TrainingPlan
@@ -34,7 +33,6 @@ class WorkoutAppWidgetProvider : AppWidgetProvider() {
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
-        Log.d(TAG, "onUpdate() called for ${appWidgetIds.size} widgets")
         appWidgetIds.forEach { appWidgetId ->
             updateAppWidget(context, appWidgetManager, appWidgetId)
         }
@@ -42,7 +40,6 @@ class WorkoutAppWidgetProvider : AppWidgetProvider() {
 
     override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
-        Log.d(TAG, "onReceive() - action: ${intent.action}")
 
         when (intent.action) {
             ACTION_SELECT_TIMER -> {
@@ -59,16 +56,13 @@ class WorkoutAppWidgetProvider : AppWidgetProvider() {
     }
 
     override fun onEnabled(context: Context) {
-        Log.d(TAG, "Widget enabled")
     }
 
     override fun onDisabled(context: Context) {
-        Log.d(TAG, "Widget disabled")
         scope.cancel()
     }
 
     private fun handleSelectTimer(context: Context, seconds: Int) {
-        Log.d(TAG, "Timer selected: $seconds seconds")
         val prefs = context.getSharedPreferences(WIDGET_PREFS, Context.MODE_PRIVATE)
 
         prefs.edit()
@@ -80,12 +74,10 @@ class WorkoutAppWidgetProvider : AppWidgetProvider() {
     }
 
     private fun handleStartTimer(context: Context) {
-        Log.d(TAG, "START button clicked")
         val prefs = context.getSharedPreferences(WIDGET_PREFS, Context.MODE_PRIVATE)
         val selectedTimer = prefs.getInt(KEY_SELECTED_TIMER, 0)
 
         if (selectedTimer <= 0) {
-            Log.w(TAG, "No timer selected, aborting")
             return
         }
 
@@ -97,7 +89,6 @@ class WorkoutAppWidgetProvider : AppWidgetProvider() {
             .putLong(KEY_TIMER_START_TIME, System.currentTimeMillis())
             .apply()
 
-        Log.d(TAG, "Timer started with $remainingSeconds seconds")
 
         // Start WorkManager for background countdown
         val workRequest = androidx.work.OneTimeWorkRequestBuilder<TimerWorker>().build()
@@ -111,7 +102,6 @@ class WorkoutAppWidgetProvider : AppWidgetProvider() {
     }
 
     private fun handlePauseTimer(context: Context) {
-        Log.d(TAG, "PAUSE button clicked")
         val prefs = context.getSharedPreferences(WIDGET_PREFS, Context.MODE_PRIVATE)
 
         prefs.edit()
@@ -125,7 +115,6 @@ class WorkoutAppWidgetProvider : AppWidgetProvider() {
     }
 
     private fun handleResetTimer(context: Context) {
-        Log.d(TAG, "RESET button clicked")
         val prefs = context.getSharedPreferences(WIDGET_PREFS, Context.MODE_PRIVATE)
         val selectedTimer = prefs.getInt(KEY_SELECTED_TIMER, 0)
 
@@ -141,7 +130,6 @@ class WorkoutAppWidgetProvider : AppWidgetProvider() {
     }
 
     private fun handlePreviousCard(context: Context) {
-        Log.d(TAG, "PREVIOUS button clicked")
         val prefs = context.getSharedPreferences(WIDGET_PREFS, Context.MODE_PRIVATE)
         val currentIndex = prefs.getInt(KEY_CURRENT_CARD_INDEX, 0)
 
@@ -156,7 +144,6 @@ class WorkoutAppWidgetProvider : AppWidgetProvider() {
     }
 
     private fun handleNextCard(context: Context) {
-        Log.d(TAG, "NEXT button clicked")
         val prefs = context.getSharedPreferences(WIDGET_PREFS, Context.MODE_PRIVATE)
         val currentIndex = prefs.getInt(KEY_CURRENT_CARD_INDEX, 0)
 
@@ -175,7 +162,6 @@ class WorkoutAppWidgetProvider : AppWidgetProvider() {
         val componentName = ComponentName(context, WorkoutAppWidgetProvider::class.java)
         val appWidgetIds = appWidgetManager.getAppWidgetIds(componentName)
 
-        Log.d(TAG, "Updating ${appWidgetIds.size} widget instances")
         appWidgetIds.forEach { appWidgetId ->
             updateAppWidget(context, appWidgetManager, appWidgetId)
         }
@@ -215,9 +201,7 @@ class WorkoutAppWidgetProvider : AppWidgetProvider() {
                 )
 
                 appWidgetManager.updateAppWidget(appWidgetId, views)
-                Log.d(TAG, "Widget $appWidgetId updated successfully")
             } catch (e: Exception) {
-                Log.e(TAG, "Error updating widget $appWidgetId", e)
             }
         }
     }

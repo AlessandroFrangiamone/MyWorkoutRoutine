@@ -49,7 +49,6 @@ class AddEditTrainingViewModel @Inject constructor(
     val uiEvent = _uiEvent.asSharedFlow()
 
     init {
-        android.util.Log.d("AddEditTrainingVM", "ViewModel created, widgetUpdater injected: ${widgetUpdater != null}")
         val trainingId = savedStateHandle.get<Long>("trainingId")
         if (trainingId != null && trainingId != 0L) {
             viewModelScope.launch {
@@ -122,9 +121,7 @@ class AddEditTrainingViewModel @Inject constructor(
             }
 
             // Update widget to reflect changes
-            android.util.Log.d("AddEditTrainingVM", "About to call widgetUpdater.updateWidgets()")
             widgetUpdater.updateWidgets()
-            android.util.Log.d("AddEditTrainingVM", "widgetUpdater.updateWidgets() completed")
 
             _uiEvent.emit(UiEvent.Success)
         }

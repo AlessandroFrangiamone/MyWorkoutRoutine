@@ -34,12 +34,9 @@ class TrainingsViewModel @Inject constructor(
 
     fun setCurrentTraining(planId: Long) {
         viewModelScope.launch {
-            android.util.Log.d("TrainingsViewModel", "setCurrentTraining called for planId: $planId")
             repository.setCurrentPlan(planId)
             // Update widget to reflect changes
-            android.util.Log.d("TrainingsViewModel", "About to call widgetUpdater.updateWidgets()")
             widgetUpdater.updateWidgets()
-            android.util.Log.d("TrainingsViewModel", "widgetUpdater.updateWidgets() completed")
         }
     }
 }
